@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
@@ -15,7 +15,7 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-const {expanded, setExpanded, ref} = useClickOutsideToggle();
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
@@ -82,7 +82,12 @@ const {expanded, setExpanded, ref} = useClickOutsideToggle();
   );
 
   return (
-    <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
+    <Navbar
+      expanded={expanded}
+      className={styles.NavBar}
+      expand="md"
+      fixed="top"
+    >
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
@@ -93,7 +98,7 @@ const {expanded, setExpanded, ref} = useClickOutsideToggle();
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
-          aria-controls="basic-navbar-nav" 
+          aria-controls="basic-navbar-nav"
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
