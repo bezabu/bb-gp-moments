@@ -10,6 +10,8 @@ import styles from "../../styles/PostsPage.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
+import NoResults from '../../assets/no-results.png'
+import Asset from "../../components/Asset";
 
 function PostsPage(message, filter = "") {
     const [posts, setPosts] = useState({ results: [] });
@@ -41,11 +43,15 @@ function PostsPage(message, filter = "") {
                     <Post key={post.id} {...post} setPosts={setPosts} />
                 ))
             ): (
-                console.log('show no results asset')
+                <Container className={appStyles.Content}>
+                    <Asset src={NoResults} message={message} />
+                </Container>
             )}
             </>
         ) : (
-            console.log('show loading spinner')
+            <Container className={appStyles.Content}>
+                <Asset spinner />
+            </Container>
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
