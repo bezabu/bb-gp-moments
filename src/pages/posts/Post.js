@@ -28,19 +28,19 @@ const Post = (props) => {
 
       const handleLike = async () => {
         try {
-            const {data} = await axiosRes.post('/likes/', {post:id});
-            setPosts(prevPosts) => ({
-                ...prevPosts,
-                results: prevPosts.results.map((post) => {
-                    return post.id === id
-                    ? {...post, likes_count: post.likes_count + 1, like_id: data.id}
-                    : post;
-                })
-            })
-        } catch(err){
-            console.log(err);
+          const { data } = await axiosRes.post("/likes/", { post: id });
+          setPosts((prevPosts) => ({
+            ...prevPosts,
+            results: prevPosts.results.map((post) => {
+              return post.id === id
+                ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+                : post;
+            }),
+          }));
+        } catch (err) {
+          console.log(err);
         }
-      }
+      };
 
   return (
     <Card className={styles.Post}>
