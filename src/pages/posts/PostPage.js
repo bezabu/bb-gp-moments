@@ -28,8 +28,8 @@ useEffect(() => {
         }
 
     }
-    handleMount()
-}, [id])
+    handleMount();
+}, [id]);
 
   return (
     <Row className="h-100">
