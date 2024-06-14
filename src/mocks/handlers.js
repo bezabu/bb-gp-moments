@@ -11,7 +11,7 @@ export const handlers = [
             profile_id: 1,
             profile_image: "https://res.cloudinary.com/djxclxygo/image/upload/v1/media/images/filmcard6_w2lsph"
         }))
-    })
+    }),
     rest.port(`${baseURL}dj-rest-auth/logout/`, (req,res,ctx) => {
         return res(ctx.status(200));
     })
